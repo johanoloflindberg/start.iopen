@@ -1,0 +1,200 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1A1A1A;
+}
+
+.bottomSpace {
+  height: 50px;
+  clear: both;
+}
+
+.group {
+  width: 750px;
+  height:auto;
+  margin: auto;
+  clear: both;
+}
+
+.group a {
+  text-decoration: none;
+}
+
+.group .name {
+  width: 750px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 35pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  border-bottom: 15px solid #4BC3D1;
+}
+
+
+.group .links {
+  width: 100%;
+  padding-top: 5px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14pt;
+  line-height: 18pt;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.group .links .row {
+  width: 100%;
+}
+
+.group .links .row .cell {
+  width: 250px;
+  float: left;
+}
+
+.group .links .row .cell a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.group .links .row .cell a:hover {
+  color: #9F9F9F;
+}
+
+.spacer {
+  clear: both;
+  height: 45px;
+  width: 100%;
+}
+
+.thePresets {
+  width: 440px;
+  margin: 0 auto;
+  background: url('http://assets.phome.us/themes/1957/2/presets-background.gif');
+}
+
+.hat {
+  width: 440px;
+  height: 11px;
+  margin: 30px auto auto auto;
+}
+
+.thePresets .mid {
+  padding: 0 11px;
+  display: block;
+  min-height: 120px;
+  clear: both;
+}
+
+.bottom {
+  width: 440px;
+  height: 27px;
+  margin: auto;
+  display: block !important;
+  clear: both;
+  background: url('http://assets.phome.us/themes/1957/2/presets-bottom.gif') no-repeat;
+}
+
+.theOptions {
+  width: 429px;
+  min-height: 26px;
+  margin: 0 auto;
+  display: block;
+}
+
+.theOptions a {
+  text-decoration: none;
+}
+
+.thePresets .option {
+  width: 122px;
+  height: 16px;
+  color: #FFF;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px;
+  float: left;
+  margin: 0 11px 11px 0;
+  background: #000 url('http://assets.phome.us/themes/1957/2/button-mask.gif') top left no-repeat;
+}
+
+.thePresets .option:hover {
+  background: #1C1C1C url('http://assets.phome.us/themes/1957/2/button-mask.gif') top left no-repeat;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.thePresets .option.selected {
+  width: 122px;
+  height: 16px;
+  color: #000;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px;
+  background: #FFF url('http://assets.phome.us/themes/1957/2/button-mask.gif') top left no-repeat;
+}
+
+.thePresets .action {
+  width: 200px;
+  display: block;
+  clear: both;
+  {Presets}
+  {/Presets}
+}
+
+#container {
+  clear: both;
+  color: #FFF;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13pt;
+  margin: auto;
+}
+
+#container .preset {
+  width: 400px;
+}
+
+#container .preset .presetwrapper {
+  text-align: center;
+  height: auto;
+  clear: both;
+}
+
+#container .preset .presetwrapper form {
+  width: 418px;
+  margin: auto;
+  clear: both;
+}
+
+#container .preset .presetwrapper .input {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18pt;
+  border: 2px dashed #000;
+  color: #FFF;
+  background: #1C1C1C;
+  margin: auto;
+}
+
+#container .preset .presetwrapper .label {
+  text-align: center;
+  display: block;
+  clear: both;
+}
+
+#container .preset .presetwrapper .button {
+  display: block;
+  border: none;
+  clear: both;
+  background: #3C3C3C;
+  color: #FFF;
+  text-transform: uppercase;
+  margin: 10px auto auto auto;
+  padding: 5px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13pt;
+  font-weight: bold;
+}

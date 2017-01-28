@@ -1,0 +1,19 @@
+<!-- Source: https://gist.github.com/inky/187274 -->
+<% for ( var groupName in groups ) { %>
+  <% links = groups[groupName]; %>
+  <div class="group">
+    <h2>
+      <%=groupName%>
+    </h2>
+    <ol>
+      <% for ( var linkName in links ) { %>
+        <li>
+          <a href="<%=links[linkName]%>">
+            <%=linkName%>
+          </a>
+        </li>
+      <% } %>
+    </ol>
+  </div>
+<% } %>
+<br class="clear">

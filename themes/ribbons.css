@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(assets/ribbons/bg.gif);
+  font-family: "Century Gothic";
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.first {
+  position: relative;
+  top: 15px;
+  left: 0px;
+  width: 100%;
+  background: url(assets/ribbons/first-bg.png) repeat-x top left #520f0f;
+  border-top: 1px solid #A0A0A0;
+  border-bottom: 1px solid #A0A0A0;
+  padding-bottom: 20px;
+  z-index: 99999;
+  float: left;
+}
+
+.first .title {
+  margin: 15px 10px 20px 18px;
+  font-weight: normal;
+  font-size: 30pt;
+  line-height: 30pt;
+  color: #D1D1D1;
+}
+
+.first .title a {
+  color: #D1D1D1;
+}
+
+.first .row .column {
+  float: left;
+  width: 25%;
+  padding-bottom: 5px;
+  padding-left: 40px;
+  color: #e8e8e8;
+}
+
+.first .row .column a {
+  font-size: 18pt;
+  color: #e8e8e8;
+  text-shadow: #444444 1px 1px 3px;
+}
+
+.first .row .column a:hover {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.first .row .column .star{
+  font-size: 15px;
+  vertical-align: 2px;
+}
+
+.first .row .column a:hover.star {
+  border-bottom: none;
+}
+
+.first-shadow {
+  position: relative;
+  top: 15px;
+  z-index: 99999;
+  float: left;
+  clear: both;
+  background: url(assets/ribbons/first-shadow.png) repeat-x top left transparent;
+  width: 100%;
+  height: 8px;
+}
+
+.others {
+  position: relative;
+  top: 15px;
+  left: 0px;
+  width: 100%;
+  float: left;
+}
+
+.others .other {
+  background: url(assets/ribbons/other-bg.png) repeat-x top left #ffffff;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+}
+
+.others .other .list {
+  margin-right: 250px;
+}
+
+.others .other .shadow {
+  position: relative;
+  top: 8px;
+  background: url(assets/themes/ribbons/first-shadow.png) repeat-x top left transparent;
+  width: 100%;
+  height: 8px;
+}
+
+.others .other .title {
+  margin: 10px 250px 10px 18px;
+  padding-top: 10px;
+  font-weight: normal;
+  font-size: 30pt;
+  line-height: 30pt;
+  color: #747474;
+}
+
+.others .other .title a {
+  color: #747474;
+}
+
+.others .other .list a {
+  color: #3f3f3f;
+  font-size: 18px;
+}
+
+.others .other .list a:hover {
+  border-bottom: 1px solid #3f3f3f;
+}
+
+.others .other .list a.updated {
+  border-bottom: 2px solid #3f3f3f;
+}
+
+.others .other .list a:hover.updated {
+  border-bottom: 1px solid #3f3f3f;
+}
+
+.others .other .list li {
+  display: inline;
+}
+
+#ribbon {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  width: 206px;
+  height: 100%;
+  background: url(assets/ribbons/ribbon-bg-2.png) repeat-y top left transparent;
+}
+
+#ribbon .presets {
+  text-align: center;
+}
+
+#ribbon .presets .title {
+  font-size: 15pt;
+  padding-bottom: 5px;
+}
+
+#ribbon .presets .input {
+  border: 1px inset #dadada;
+  background-color: #f8f8f8;
+  font-family: "Century Gothic";
+  font-size: 13pt;
+  text-align: center;
+}
+
+#ribbon .presets .button {
+  border: 1px outset #b6b6b6;
+  background-color: #d9d9d9;
+  color: #5b5a5a;
+  font-family: "Century Gothic";
+  font-size: 12pt;
+}
+
+#ribbon .presets .button:hover {
+  border: 1px inset #b6b6b6;
+}

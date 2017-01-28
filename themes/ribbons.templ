@@ -1,0 +1,51 @@
+<% i = 1; %>
+<% i_last = Object.keys(groups).length; %>
+<% for ( var groupName in groups ) { %>
+  <% links = groups[groupName]; %>
+  <% if ( i == 2 ) { %>
+    <div class="others">
+  <% } %>
+  <div class="group <% if ( i == 1 ) { %> first<% } else { %> other<% } %>" id="<%=groupName%>">
+    <h1 class="title">
+      <a href="#<%=groupName%>">
+        <%=groupName%>
+      </a>
+    </h1>
+    <% if ( i == 1 ) { %>
+      <div class="row">
+        <% j = 1; %>
+        <% for ( var linkName in links ) { %>
+          <div class="column">
+            <a href="<%=links[linkName]%>">
+              <%=linkName%>
+            </a>
+          </div>
+          <% if ( j % 3 == 0 ) { %>
+            </div>
+            <div class="row">
+          <% } %>
+          <% j += 1; %>
+        <% } %>
+      </div>
+    <% } else { %>
+      <ul class="list">
+        <% j = 1; %>
+        <% j_last = Object.keys(links).length; %>
+        <% for ( var linkName in links ) { %>
+          <a href="<%=links[linkName]%>">
+            <%=linkName%></a><% if ( j == j_last ) { %>.<% } else { %>,<% } %>
+        <% } %>
+      </ul>
+    <% } %>
+  </div>
+  <div class="<% if ( i == 1 ) { %>first-<% } %>shadow"></div>
+  
+  <% if ( i == i_last ) { %>
+    </div>
+  <% } %>
+  <% i += 1; %>
+<% } %>
+<div id="ribbon">
+  <div id="presetsWrapper" class="presets" style="padding-top: 300px">
+  </div>
+</div>

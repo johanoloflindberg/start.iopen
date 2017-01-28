@@ -1,0 +1,111 @@
+body {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-family: Arial;
+  background: #1D1D1D;
+  margin: 0;
+  padding: 0;
+}
+
+a:active,a:focus { outline: 0; }
+
+.container {
+  width: 1120px;
+  font-style: bold;
+  margin: 27px auto auto auto;
+  position: relative;
+  z-index: 3;
+  left: -27px;
+}
+
+.container .row {
+  width: 1120px;
+  clear: both;
+}
+
+.container .row .group {
+  width: 225px;
+  margin: 55px 0 0 55px;
+  position: relative;
+  float: left;
+}
+
+.container .row .group a.top {
+  width: 179px;
+  color: #FFFFFF;
+  font-size: 16px;
+  text-decoration: none;
+  background: #060606;
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  padding: 10px 23px;
+  z-index: 2;
+  display: block;
+}
+
+.container .row .group .bottom {
+  width: 225px;
+  background: url(http://start.io/assets/themes/precinct/link-bg.png);
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  -moz-border-radius-bottomleft: 9px;
+  -moz-border-radius-bottomright: 9px;
+  -webkit-border-bottom-left-radius: 9px;
+  -webkit-border-bottom-right-radius: 9px;
+  margin: -15px 0 0 0;
+  padding: 22px 0 9px 0;
+  z-index: 1;
+}
+
+.container .row .group .bottom a {
+  width: 165px;
+  color: #D4D4D4;
+  text-shadow: 1px 1px 2px black;
+  text-decoration: none;
+  padding: 4px 30px 4px 30px;
+  display: block;
+}
+
+.container .row .group .bottom ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container .row .group .bottom li {
+  margin: 0;
+  padding: 0;
+}
+
+.container .row .group .bottom li:hover {
+  background: #232323;
+}
+
+.container .row .group .bottom li .flag {
+  width: 18px;
+  height: 7px;
+  background: url(http://start.io/assets/themes/precinct/flag.png) no-repeat;
+  margin: 7px 0 0 -6px;
+  float: left;
+  display: none;
+}
+
+.container .row .group .bottom li:hover .flag {
+  margin: 7px 0 0 7px;
+}
+
+#scale {
+ position: fixed;
+ top: 0;
+ left: 0;
+ z-index: 2;
+ overflow: hidden;
+}
+
+#scale img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}

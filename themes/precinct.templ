@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <% i = 1; %>
+    <% for ( var groupName in groups ) { %>
+      <% links = groups[groupName]; %>
+      <div class="group" id="<%=groupName%>">
+        <a href="#<%=groupName%>" class="top">
+          <%=groupName%>
+        </a>
+        <div class="bottom">
+          <ul>
+            <% for ( var linkName in links ) { %>
+              <li>
+                <div class="flag"></div>
+                <a href="<%=links[linkName]%>"><%=linkName%></a></li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+      <% if ( i % 4 == 0 ) { %>
+        </div>
+        <div class="row">
+      <% } %>
+      <% i += 1; %>
+    <% } %>
+  </div>
+</div>

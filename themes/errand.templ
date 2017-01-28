@@ -1,0 +1,29 @@
+<div class="container">
+  <% for ( var groupName in groups ) { %>
+    <% links = groups[groupName]; %>
+    <div class="group" id="<%=groupName%>">
+      <div class="top">
+        <a href="#<%=groupName%>" class="title">
+          <%=groupName%>
+        </a>
+      </div>
+      <table>
+        <tr>
+          <% i = 1; %>
+          <% for ( var linkName in links ) { %>
+            <td vertical-align:middle <% if ( i % 3 == 0 ) { %>style="border-right-width: 0px;"<% } %> >
+              <a href="<%=links[linkName]%>">
+                <div class="dot"></div>
+                <%=linkName%>
+              </a>
+            </td>
+            <% if ( i % 3 == 0 ) { %>
+              </tr><tr>
+            <% } %>
+          <% i += 1; %>
+          <% } %>
+        </tr>
+      </table>
+    </div>
+  <% } %>
+</div>

@@ -1,0 +1,203 @@
+/* This file is currently not used; it's here as a reference */
+
+body {
+  background: #fff;
+  font-family: 'Helvetica', Helvetica, Arial, sans-serif;
+  margin: 0 0 0 0;
+}
+
+.theGroups {
+  clear: both;
+}
+
+.belowSpace {
+  clear: both;
+  height: 20px;
+}
+
+.theGroups .group {
+  width: 200px;
+  margin: 50px 0 0 90px;
+  display: inline-block; float: left !important;
+}
+
+.theGroups .group .title {
+  width: 185px;
+  padding: 0 0 6px 15px;
+  border-bottom: 1px solid #bcbcbc;
+}
+
+.theGroups .group .title a {
+  font-size: 24px;
+  text-decoration: none;
+  color: #000;
+}
+
+.theGroups .group .theLinks {
+  line-height: 16pt;
+  font-size: 13px;
+  margin-top: 5px;
+  margin-left: 2px;
+  color: #000;
+}
+
+.theGroups .group .theLinks .notUpdated {
+  padding: 2px 0 0 17px;
+}
+
+.theGroups .group .theLinks .notUpdated a {
+  text-decoration: none;
+  color: #000;
+}
+
+.theGroups .group .theLinks .notUpdated a:hover {
+  text-decoration: underline;
+}
+
+.theGroups .group .theLinks .updated {
+  padding: 2px 0 0 17px;
+}
+
+.theGroups .group .theLinks .updated a {
+  text-decoration: none;
+  color: #000;
+}
+
+.theGroups .group .theLinks .updated a:hover {
+  text-decoration: underline;
+}
+
+.thePresets {
+  font-size: 12px;
+  margin: -1px auto;
+  width: 502px;
+  border-left: 1px solid #AEAEAE; border-right: 1px solid #AEAEAE;
+  background: url('http://img260.imageshack.us/img260/170/defaultpresetdividerbu1.png') left repeat-y #F9F9F9;
+}
+
+.thePresets #hidable {
+  height: 100%;
+  padding: 15px auto;
+  position: relative;
+  bottom: -1px;
+  display: block;
+}
+
+#toggle {
+  width: 7px;
+  height: 6px;
+  float: right;
+  position: absolute;
+  right: 20px;
+  top: 8px;
+  display: block;
+}
+
+.thePresets .space {
+  height: 15px;
+  width: 100%;
+}
+
+.thePresets #hidable .options {
+  width: 201px;
+  line-height: 15pt;
+  display: inline;
+  float: left;
+  background: #f9f9f9;
+}
+
+#container .preset {
+  padding: auto;
+  float:left;
+  padding: 13px;
+  width: 266px;
+  display: none;
+}
+
+#hidable #container .preset .presetwrapper {
+  text-align: center;
+  height: 100px;
+}
+
+#hidable #container .preset .presetwrapper form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hidable #container .preset .presetwrapper .input {
+  display: block;
+  width: 100%;
+  padding: 3px;
+  font-family: 'Helvetica', Helvetica, Arial, sans-serif;
+  font-size: 12pt;
+  border: 1px solid #aeaeae;
+  color: #2E2E2E;
+}
+
+#hidable #container .preset .presetwrapper .button {
+  display: block;
+  margin: 10px auto 10px auto;
+  border: 1px solid #4085A5;
+  background: #75b4d2;
+  padding: 5px 10px;
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 10pt;
+}
+
+.thePresets #hidable .options .option {
+  color: #000;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 9pt;
+  text-align: center;
+}
+
+.thePresets #hidable .options a {
+  text-decoration: none;
+}
+
+.thePresets #hidable .options .option:hover {
+  background: #eee;
+}
+
+.thePresets #hidable .options .option.selected {
+  background: #75b4d2;
+  font-weight: bold;
+  color: #fff;
+}
+
+.thePresets .bottom {
+  clear: both;
+  height: 20px;
+  width: 504px;
+  position: relative;
+  left: -1px;
+  border-bottom: 1px solid #AEAEAE;
+}
+
+.thePresets .bottom .bottomLeft {
+  height: 6px;
+  width: 6px;
+  position: relative;
+  top: 15px;
+  float: left;
+  background: url('http://assets.phome.us/themes/default/corner-bottom-left.png');
+}
+
+.thePresets .bottom .divider {
+  float: left;
+  margin-left: 194px;
+  width: 1px;
+  height: 100%;
+  border-right: 1px solid #AEAEAE;
+}
+
+.thePresets .bottom .bottomRight {
+  height: 6px;
+  width: 6px;
+  position: relative;
+  top: 15px;
+  float: right;
+  background: url('http://assets.phome.us/themes/default/corner-bottom-right.png');
+}

@@ -1,0 +1,713 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta content='width=device-width' name='viewport'>
+  <title>start.iopen</title>
+  <link rel="shortcut icon" href="favicon.ico?v=1.1" type="image/x-icon" id="startiopen_favicon" />
+  <link rel="stylesheet" type="text/css" id="startiopen_stylesheet">
+  <!-- Default theme that is loaded as a fallback, if the user's choice isn't available, etc) -->
+  <style id="startiopen_defaultStyle">
+    body{background:#fff;font-family:Helvetica,Helvetica,Arial,sans-serif;margin:0}.theGroups{clear:both}.belowSpace{clear:both;height:20px}.theGroups .group{width:200px;margin:50px 0 0 90px;display:inline-block;float:left!important}.theGroups .group .title{width:185px;padding:0 0 6px 15px;border-bottom:1px solid #bcbcbc}.theGroups .group .title a{font-size:24px;text-decoration:none;color:#000}.theGroups .group .theLinks{line-height:16pt;font-size:13px;margin-top:5px;margin-left:2px;color:#000}.theGroups .group .theLinks .notUpdated{padding:2px 0 0 17px}.theGroups .group .theLinks .notUpdated a{text-decoration:none;color:#000}.theGroups .group .theLinks .notUpdated a:hover{text-decoration:underline}
+  </style>
+  <!-- Preferences and About dialogs -->
+  <style>
+    .dialog {
+      font: normal 1em sans-serif;
+      text-align: center;
+      margin: 2.5% 5% 1% 5%;
+      padding: 2.5% 5% 1% 5%;
+      color: black;
+      background: white;
+      border-radius: 1em;
+    }
+    .dialog p {
+      margin: 2em auto;
+    }
+    .dialog > * {
+      text-align:left;
+    }
+    .dialog .button {
+      font-size: 0.75em;
+      background: #75B4D2;
+      border-radius: 1em;
+      padding: 0.5em 1em;
+      color: white;
+      cursor: pointer;
+      margin-right: 1em;
+    }
+    .dialog .button:hover {
+      background: #5d90a8;
+    }
+    .dialog h1 {
+      font: normal 3.5em sans-serif;
+      margin: 0;
+    }
+    #startiopen_about span {
+      display: inline-block;
+      line-height: 1.5;
+      font-size: 1.5em;
+      font-family: 'Helvetica Neue','Helvetica','Open Sans',sans-serif;
+      font-weight: 200;
+      margin-left: 1em;
+    }
+  </style>
+  <!-- Menu on the left -->
+  <style>
+    .menu {
+      top: 0;
+      left: 2em;
+      position: absolute;
+      z-index: 9999998;
+      color: #464646;
+    }
+    .menu {
+      display: inline-block;
+      font: bold 1em/0.5em sans-serif;
+    }
+    .menu label,
+    .menu ul li,
+    .menu span {
+      border-left: #aaa 1px solid;
+      border-right: #aaa 1px solid;
+      background: #F6F6F6;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+    }
+    .menu .err { color: DarkRed; }
+    .menu ul li.err:hover { background: Pink; }
+    .menu label {
+      display: inline-block;
+      display: block;
+      text-align: center;
+      color: black;
+      text-shadow: none;
+    }
+    .logo {
+      padding: 0.5em 1em;
+      color: #F6F6F6;
+      font-weight: bold;
+      text-shadow: 1px 1px black;
+      background: #353535;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+      cursor: default;
+    }
+    .menu.hover-show > div:hover ul,
+    .menu input[type=checkbox]:checked ~ ul {
+      display: block;
+    }
+    .menu ul {
+      font: normal 0.75em/1.6em sans-serif;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: none;
+      text-align: center;
+    }
+    .menu ul li:hover {
+      background: #75B4D2;
+      color: white;
+      cursor: pointer;
+    }
+    .menu ul li,
+    .menu span {
+      border-top: #E7E7E7 1px solid;
+    }
+    .menu span {
+      height: 0.5em;
+      padding: 0;
+      border-bottom: #aaa 1px solid;
+      border-bottom-left-radius: 1em;
+      border-bottom-right-radius: 1em;
+      display: block;
+      cursor: default;
+    }
+  </style>
+  <!-- Spinner from https://twitter.com/veganben/status/415373812360679425 -->
+  <style>
+    .loading {
+      height: 0;
+      width: 0;
+      padding: 15px;
+      border: 6px solid #ccc;
+      border-right-color: #888;
+      border-radius: 22px;
+      -webkit-animation: rotate 1s infinite linear;
+      animation: rotate 1s infinite linear;
+      position: absolute;
+      left: 50%;
+      top: 35%;
+    }
+    @-webkit-keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .shown {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+  <style>
+    .empty {
+      margin: 2em auto;
+      width: 100%;
+      text-align: center;
+      font-size: 2.5em;
+      color: #bbb;
+      text-shadow: -1px -1px #999;
+    }
+    .empty:before {
+      content: "!";
+      color: #666;
+      text-shadow: -1px -1px #444;
+    }
+  </style>
+  <style id="startiopen_mobileStyle" disabled=disabled>
+    html, body, main {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    main {
+     font-family: verdana, sans-serif;
+     font-size: 1.4em;
+     line-height: 1.8em;
+     text-align: center;
+    }
+    main a, main a:visited {
+     color: black;
+     text-decoration: none;
+     display: block;
+    }
+    main h2 {
+      font-size: 1.6em;
+      margin: 0 0 0.25em 0;
+      font-weight:500;
+      border-bottom: DarkGray 1px solid;
+      display: inline-block;
+    }
+    main .group {
+      padding: 2em 0 1em 0;
+    }
+    .menu {
+      width: 100%;
+      left: 0;
+      position: relative;
+      font-size: 1.5em;
+    }
+    .menu.hover-show > div:hover ul {
+      display: inherit !important;
+    }
+    #startiopen_about {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- "Nav" menu used to access preferences, fetch sites, etc -->
+  <nav id="startiopen_nav" class="menu hover-show">
+    <div>
+      <!-- At one time I made the menu toggleable instead of activated by hover -->
+      <input type="checkbox" id="startio_menucbox" disabled style="display: none;">
+      <script type="text/javascript">
+        document.getElementById("startio_menucbox").checked = false;
+      </script>
+      <label for="startio_menucbox" class="logo" id="startio_mainLogo">start.iopen</label>
+      <ul>
+        <li onclick="fetchSites(true) && refresh()">Fetch Sites</li>
+        <li onclick="showDialog('preferences')">Preferences</li>
+        <li onclick="showDialog('about')">About</li>
+        <li id="errorMenu" class="err" style="display:none">Error</li>
+      </ul>
+      <span><i style="visibility: hidden">:)</i></span> <!-- Creates the small rounded bottom piece of the menu -->
+    </div>
+  </nav>
+  <!-- The container that will hold the rendered favorites -->
+  <main id="startiopen_container"></main>
+  <!-- The screen that is used to set preferences -->
+  <div id="startiopen_preferences" class="dialog" style="display: none;">
+    <h1>Preferences</h1>
+    <form onsubmit="savePrefs(); refresh(); return false;" autocomplete="off">
+      <p>
+        <label for="jsonPath">Sites JSON path:
+          <input name="jsonPath" id="startiopen_jsonPath" type="text" style="width: 30em; max-width: 100%;"> 
+        </label>
+      </p>
+      <p>
+        <input name="newWindow" id="startiopen_newWindow" type="checkbox">
+        <label for="newWindow">Open links in new window</label>
+      </p>
+      <p>
+        <label for="theme">Theme</label>
+        <select id="startiopen_theme" name="theme"></select>
+      </p>
+      <p>
+        <label for="forceLayout">Force layout</label>
+        <select id="startiopen_forceLayout" name="forceLayout">
+          <option>auto</option>
+          <option>desktop</option>
+          <option>mobile</option>
+        </select>
+      </p>
+      <p>
+        <label for="autofetch">Auto-fetch every (days):</label>
+        <input type="number" name="autoFetchDays" id="startiopen_autoFetchDays" style="width: 4em;" />
+      </p>
+      <p>
+        <input name="jsonIsh" id="startiopen_jsonIsh" type="checkbox">
+        <label for="jsonIsh">"JSON" file is really JS that sets window.jsonData</label>
+      </p>
+      <p>
+        <label for="auth">Basic Auth:</label>
+        <input name="auth" type="text" id="startiopen_auth_user" placeholder="user" title="user">
+        <input name="auth" type="password" id="startiopen_auth_pass" placeholder="pass" title="pass">
+        
+        <small style="color: DarkRed; font-size: 0.75em">Do not use sensitive info. This is not secure.</small>
+        <!-- It's stored in plaintext and -if jsonPath is http- sent in cleartext over. -->
+      </p>
+      <br />
+      <label class="button" onclick="this.form.onsubmit() && this.form.submit()">Save</label>
+      <label class="button" onclick="history.back(); return false">Cancel</label>
+    </form>
+    <p>
+      Debug:
+      <button onclick="confirm('Clear cache?') && !localStorage.removeItem('startiopen_sites') && refresh();">Clear Cache</button>
+      <button onclick="confirm('Clear preferences & cache?') && !localStorage.clear() && refresh();">Clear All</button>
+    </p>
+  </div>
+  <!-- The screen that displays info about the app -->
+  <div id="startiopen_about" class="dialog" style="display: none;">
+    <div>
+      <div class="logo" style="font-size: 3.14em">
+        <b style="text-align: center">
+          start<wbr></wbr>.<wbr></wbr>iopen
+        </b>
+      </div>
+      <span style="margin-top: 1.3em">
+        Version
+        <script type="text/javascript">document.write(document.getElementById("startiopen_favicon").href.split("?")[1].substr(2))</script>
+      </span>
+      <br/>
+      <span>
+        <a href="http://opensource.org/licenses/MIT" title="OpenSource.org MIT License" target="_blank">
+          MIT License
+        </a>
+      </span>
+      <br/>
+      <span>
+        Copyright 2015
+        <a href="http://qweex.com" title="Qweex website" target="_blank">Qweex LLC</a>
+      </span>
+      <br/><br/>
+      <span><small>
+        <a href="http://github.com/notbryant/start.iopen" title="Start.iopen GitHub repo" target="_blank">Source available on GitHub</a>
+        ツ
+      </small></span>
+      <br/><br/>
+      <b style="width: 100%; text-align: right; display: inline-block;">
+        <label class="button" onclick="history.back(); return false" style="margin: 1em">Done</label>
+      </b>
+    </div>
+  </div>
+
+  <!-- The default HTML template, used with the minified CSS at the top of the page -->
+  <script type="text/html" id="startiopen_templ_Default">
+    <div class="theGroups">
+      <% for ( var groupName in groups ) { %>
+        <% links = groups[groupName]; %>
+        <div class="group" id="<%=groupName%>">
+          <div class="title">
+            <a href="#<%=groupName%>">
+              <%=groupName%>
+            </a>
+          </div>
+          <div class="theLinks">
+            <% for ( var linkName in links ) { %>
+              <div class="notUpdated">
+                <a href="<%=links[linkName]%>">
+                  <%=linkName%>
+                </a>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      <% } %>
+      <div class="belowSpace"></div>
+    </div>
+  </script>
+
+  <!-- The mobile template; the minified CSS at the top of the page also applies to this -->
+  <script type="text/html" id="startiopen_templ_Mobile">
+    <% for ( var groupName in groups ) { %>
+      <% links = groups[groupName]; %>
+      <div class="group" id="<%=groupName%>">
+        <h2><a href="#<%=groupName%>" target="_self"><%=groupName%></a></h2>
+        <% for ( var linkName in links ) { %>
+          <a href="<%=links[linkName]%>"><%=linkName%></a>
+        <% } %>
+      </div>
+    <% } %>
+  </script>
+
+  <!-- What to display if there is an error or no sites exist -->
+  <script type="text/html" id="startiopen_empty">
+    <div class="empty"><%=message%></div>
+  </script>
+
+  <script type="text/javascript">
+  <!-- Everything to do with preferences -->
+    var themes = ["Default", "1957", "Edition", "Precinct", "Elizabeth", "Ribbons", "Errand", "Inky"];
+    var themesReset = ["Edition", "Errand"]; // These themes require a CSS reset
+    document.getElementById("startiopen_mobileStyle").disabled = true;
+
+    // Stores the current preference values
+    var Prefs = {}, prefsAltered = false, PrefDefaults = {
+      jsonPath: "sites.json",
+      theme: themes,
+      newWindow: true,
+      forceLayout: ["auto", "desktop", "mobile"],
+      autoFetchDays: 7,
+      jsonIsh: false,
+      auth: function(a) {
+        if(!a.user || !a.pass || a.user=="" || a.pass=="")
+          return null;
+        return btoa(a.user+":"+a.pass);
+      }
+    };
+    PrefDefaults.auth.user = function(auth) {if(!auth) return; auth=atob(auth); return auth.substr(0, auth.indexOf(":"))};
+    PrefDefaults.auth.pass = function(auth) {if(!auth) return; auth=atob(auth); return auth.substr(auth.indexOf(":")+1)};
+
+    // Load the preferences
+    for(var p in PrefDefaults) {
+      prefsAltered = prefsAltered || getURLParameter(p) != localStorage.getItem("startiopen_" + p);
+      Prefs[p] = getURLParameter(p) || localStorage.getItem("startiopen_" + p);
+
+      if(Prefs[p]===null || Prefs[p]===undefined || Prefs[p]=="") {
+        Prefs[p] = Array.isArray(PrefDefaults[p]) ? PrefDefaults[p][0]
+                   : typeof PrefDefaults[p] == "function" ? PrefDefaults[p]._ : PrefDefaults[p];
+      }
+      else if(typeof PrefDefaults[p] == "number")
+        Prefs[p] = parseInt(Prefs[p]);
+      else if(typeof PrefDefaults[p] == "boolean" && typeof Prefs[p] == "string")
+        Prefs[p] = Prefs[p] !== "false" && Prefs[p] !== "0";
+      else if(Array.isArray(PrefDefaults[p]))
+        Prefs[p] = PrefDefaults[p][ (PrefDefaults[p].indexOf(Prefs[p])+1||1)-1];
+
+      prefCtrlVal(p, Prefs[p]);
+    }
+
+    function prefCtrlVal(p, setval) {
+      var ctrl = document.getElementById("startiopen_" + p);
+      if(!ctrl) {
+        var ret = {};
+        for(var v in PrefDefaults[p]) {
+          var sub = Array.isArray(PrefDefaults[p]) ? PrefDefaults[p][v] : v;
+          if(typeof PrefDefaults[p][v] == "function")
+            ret[sub] = prefCtrlVal(p+"_"+sub, PrefDefaults[p][v](setval));
+          else if(prefCtrlVal(p+"_"+sub, setval))
+            ret = sub;
+        }
+        if(typeof PrefDefaults[p] == "function")
+          ret = PrefDefaults[p](ret);
+        return ret;
+      }
+      var attr = ctrl.type=="checkbox" ? "checked" : "value";
+
+      if(setval!==null && setval!==undefined)
+        if(p.indexOf("_")>-1) {
+          var main = p.split("_")[0], sub = p.split("_")[1];
+          if(attr=="checked")
+            ctrl[attr] = setval == sub;
+          else
+            ctrl[attr] = setval;
+        }
+        else
+          ctrl[attr] = setval;
+      return ctrl[attr];
+    }
+
+    // Persist the DOM's preference values to localStorage
+    function savePrefs() {
+      for(var p in PrefDefaults)
+        localStorage.setItem("startiopen_"+p, prefCtrlVal(p));
+    }
+
+    if(prefsAltered && !!getURLParameter("save"))
+      savePrefs();
+
+    // http://stackoverflow.com/a/8764051
+    function getURLParameter(name) {
+      return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)', 'i').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+    }
+  </script>
+
+  <!-- The magic function that combines the template with the JSON data -->
+  <script type="text/javascript">
+    // Simple JavaScript Templating
+    // John Resig - http://ejohn.org/ - MIT Licensed
+    // with a bugfix - http://weblog.west-wind.com/posts/2008/Oct/13/Client-Templating-with-jQuery#532836
+    (function(){var cache={};this.tmpl=function tmpl(str,data){var fn=!/\W/.test(str)?cache[str]=cache[str]||tmpl(document.getElementById(str).innerHTML):new Function("obj","var p=[],print=function(){p.push.apply(p,arguments);};"+"with(obj){p.push('"+str.replace(/[\r\t\n]/g, " ").replace(/'(?=[^%]*%>)/g,"\t").split("'").join("\\'").split("\t").join("'").replace(/<%=(.+?)%>/g, "',$1,'").split("<%").join("');").split("%>").join("p.push('")+ "');}return p.join('');");return data?fn(data):fn}})();
+  </script>
+
+  <script type="text/javascript">
+    function refresh() {
+      location.replace(location.pathname);
+    }
+    // Perform an AJAX call
+    function ajax(file, mimetype, callback) {
+      Container.innerHTML = "<div class='loading'></div>";
+      try {
+        var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType(mimetype);
+        xobj.open('GET', file, true);
+        if(Prefs.auth) {
+          xobj.setRequestHeader("Authorization", "Basic " + Prefs.auth);
+          xobj.setRequestHeader("Accept", "*/*");
+        }
+        xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4) {
+            if(xobj.status == "200")
+              callback(null, xobj.responseText);
+            else
+              fail();
+          }
+        };
+        xobj.send(null);
+      } catch(e) {
+        fail();
+      }
+      function fail() {
+        callback(xobj.status === 0 ? "CORS request not allowed" : "AJAX failed: " + xobj.status + " " + xobj.statusText);
+      }
+    };
+
+    // Creates the HTML entities from the JSON and puts them into the DOM
+    var populateDOM = function(jsonData) {
+      try {
+        Container.innerHTML = tmpl("startiopen_templ_" + Prefs.theme, {groups: JSON.parse(jsonData)});
+      } catch(e) {
+        setError("Error while parsing JSON", true);
+        console.error(jsonData)
+        return;
+      }
+
+      if(showGroup()) return;
+
+      var anchors = Container.getElementsByTagName("a");
+      if(anchors.length==0)
+        return setEmpty("No sites to display");
+
+      // Make all links (except titles) open in a new tab
+      if(Prefs.newWindow) {
+        [].forEach.call(anchors, function(anchor) {
+          if(anchor.getAttribute("href").indexOf("#")!==0)
+            anchor.target="_blank";
+        });
+      }
+    };
+
+    // Loads the faux-JSON file that sets window.jsonData
+    var loadJsonIsh = function(previousError) {
+      var localScript = document.createElement("script");
+      localScript.type = "text/javascript";
+      localScript.onload = function() {
+        if(window.jsonData) {
+          localStorage.setItem("startiopen_sites", JSON.stringify(window.jsonData));
+          localStorage.setItem("startiopen_lastFetched", new Date().getTime());
+          populateDOM(JSON.stringify(window.jsonData));
+        } else {
+          // ajax() has  thrown an error, now loadJsonIsh() failed
+          setError(previousError ? "AJAX threw an error and JSON-ish did not set window.jsonData" : "JSON-ish file did not set window.jsonData", !localStorage.getItem("startiopen_sites"))
+          var cacheData = localStorage.getItem("startiopen_sites");
+          populateDOM(cacheData);
+        }
+      };
+      localScript.onerror = function(e) {
+        console.error(e)
+        setError("JSON file could not be accessed", true);
+      }
+      localScript.src = Prefs.jsonPath;
+      document.body.appendChild(localScript);
+    }
+
+    ///// Load the JSON /////
+    var fetchSites = function(force) {
+      var cacheData = localStorage.getItem("startiopen_sites");
+      var timeDiff = Math.abs(new Date().getTime() - parseInt(localStorage.getItem("startiopen_lastFetched")));
+      var diffDays = Math.floor(timeDiff / (1000 * 3600 * 24));
+      var autofetch = (diffDays >= Prefs.autoFetchDays);
+      if(cacheData!=null && !force && !autofetch) {
+        populateDOM(cacheData);
+      } else {
+        if(Prefs.jsonIsh)
+          loadJsonIsh();
+        else
+          ajax(Prefs.jsonPath, "application/json", function(err, jsonData) {
+            if(jsonData) {
+              localStorage.setItem("startiopen_sites", jsonData);
+              localStorage.setItem("startiopen_lastFetched", new Date().getTime());
+              populateDOM(jsonData);
+            } else {
+              //loadJsonIsh(e);
+              if(cacheData && cacheData.length>0) {
+                setError(err + "; Using cached data");
+                populateDOM(cacheData);
+              } else
+                setError(err, true);  // No cached data exists
+            }
+          });
+      }
+    };
+
+    // Sets the main content to be an error
+    function setError(what, utterFailure) {
+      what = what || "Unknown failure";
+      document.getElementById("startio_mainLogo").className += " err";
+      var err = document.getElementById("errorMenu");
+      if(err.dataset.message) {
+        if(err.dataset.message.indexOf("\n")==-1)
+          err.textContent += "s"
+        err.dataset.message += "\n" + what;
+      } else
+        err.dataset.message = what;
+      err.style.color = "DarkRed";
+      err.title = err.dataset.message;
+      err.style.display = "";
+      err.onclick = function() {
+        alert(err.dataset.message);
+      };
+      if(utterFailure)
+        setEmpty(what);
+      console.error(what);
+    }
+
+    // Sets the main content to be the empty message
+    function setEmpty(msg) { Container.innerHTML = tmpl("startiopen_empty", {message: msg}); return msg;}
+
+    // Checks both the preferences and really poor attempt at a simple guess
+    function isMobile() {
+      if(Prefs.forceLayout == "mobile") return true;
+      if(Prefs.forceLayout == "desktop") return false;
+      try{ document.createEvent("TouchEvent"); return true; }
+      catch(e){ return false; }
+    }
+
+    // Dialog functions
+    function showDialog(name) {
+      history.pushState(null, null, location.href);
+      Container.style.display=Nav.style.display='none';
+      document.getElementById("startiopen_"+name).style.display='block';
+    }
+    function hideDialogs() {
+      Nav.style.display = 'inline-block';
+      Container.style.display = '';
+      var dialogs = document.getElementsByClassName("dialog")
+      for(var i=0; i<dialogs.length; i++)
+        dialogs[i].style.display = 'none';
+    }
+    window.addEventListener("popstate", hideDialogs);
+
+    // Show JUST a group specified by the URL hash
+    window.onhashchange = showGroup;
+    function showGroup() {
+      var groupName = location.hash.replace(/^#/, '');
+      var group = groupName.length ? document.getElementById(groupName) : null;
+      if(groupName.length && !group)
+        return setEmpty("No group named '" + groupName + "'");
+      var groupDivs = document.getElementsByClassName("group");
+      [].forEach.call(groupDivs, function(groupDiv) {
+        groupDiv.style.display = (group == groupDiv || group===null) ? "" : "none";
+      });
+    }
+
+    // Make Esc hide the dialogs
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        if(evt.keyCode == 27)
+          history.back();
+    };
+
+
+
+    ////////////// End of functions, start the actual execution //////////////
+    var Container = document.getElementById("startiopen_container"),
+        Nav = document.getElementById("startiopen_nav"),
+        themeselector = document.getElementById("startiopen_theme")
+
+    // Set up the Skin Selector
+    themes.forEach(function(theme) {
+      var themeOpt = document.createElement("option");
+      themeOpt.textContent = theme;
+      if(theme==Prefs.theme) themeOpt.selected = 'selected';
+      themeselector.appendChild(themeOpt);
+    });
+
+
+    // Load the CSS
+    var style = document.getElementById("startiopen_defaultStyle");
+    if(isMobile()) {
+      document.getElementById("startiopen_mobileStyle").disabled = ''
+      document.getElementById("startio_menucbox").disabled = ''
+      Nav.className = 'menu'
+      Prefs.theme = "Mobile";
+      style.disabled = true;
+    } else {
+      if(Prefs.theme!="Default")
+        if(document.getElementById("startiopen_style_"+Prefs.theme))
+          document.getElementById("startiopen_style_"+Prefs.theme).disabled = '';
+        else {
+          stylesheet = document.getElementById("startiopen_stylesheet");
+          if(themesReset.indexOf(Prefs.theme)>0) {
+            if(document.getElementById("startiopen_resetStyle"))
+              document.getElementById("startiopen_resetStyle").disabled = '';
+            else {
+              var reset = stylesheet.cloneNode();
+              reset.href = "themes/reset.css";
+              document.getElementsByTagName("head")[0].insertBefore(reset, stylesheet);
+            }
+          }
+          stylesheet.href = "themes/" + Prefs.theme.toLowerCase() + ".css";
+          style.disabled = true;
+          //style.parentElement.removeChild(style); //remove Default's CSS
+        }
+    }
+    // Fetch the theme and then fetch the sites
+    var forceFetch = !!getURLParameter("jsonPath") || (!!Prefs.jsonPath
+                    && !!localStorage.getItem("startiopen_jsonPath")
+                    && Prefs.jsonPath != localStorage.getItem("startiopen_jsonPath"));
+    if(document.getElementById("startiopen_templ_" + Prefs.theme))
+      fetchSites(forceFetch);
+    else
+        ajax("themes/" + Prefs.theme.toLowerCase() + ".templ", "text/html", function(err, data) {
+          if(err){
+            setError("AJAX failed to fetch your theme (" + Prefs.theme + ") for whatever reason; resorting to Default theme");
+            Prefs.theme = "Default";
+            fetchSites(forceFetch);
+          } else {
+            var template = document.getElementById("startiopen_templ_Default");
+            template.innerHTML = data;
+            template.id = "startiopen_templ_" + Prefs.theme
+            fetchSites(forceFetch);
+          }
+        });
+  </script>
+
+</body>
+</html>

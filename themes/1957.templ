@@ -1,0 +1,30 @@
+<% for ( var groupName in groups ) { %>
+  <% links = groups[groupName]; %>
+  <div class="group" id="<%=groupName%>">
+    <div class="spacer"></div>
+    <a href="#<%=groupName%>">
+      <div class="name" style="border-bottom: 15px solid #B65051;">
+        <%=groupName%>
+      </div>
+    </a>
+    <div class="links">
+      <div class="row">
+        <% i = 1; %>
+        <% for ( var linkName in links ) { %>
+          <% if ( i % 3 == 0 ) { %>
+            </div>
+            <div class="row">
+          <% } %>
+             <div class="cell">
+               <a href="<%=links[linkName]%>" class="link">
+                  <%=linkName%>
+                </a>
+             </div>
+          <% i += 1; %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<% } %>
+<div class="spacer"></div>
+<div class="spacer"></div>

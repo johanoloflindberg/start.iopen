@@ -1,0 +1,37 @@
+{
+  "Main": {
+    "Gmail": "https://mail.google.com",
+    "Keep": "https://keep.google.com",
+    "Amazon": "https://amazon.com",
+    "Dropbox": "https://dropbox.com",
+    "WorkFlowy": "https://workflowy.com",
+    "Toggl": "https://toggl.com/app/timer",
+    "PlanToeat": "http://plantoeat.com",
+    "Qweex": "http://qweex.com"
+  },
+  "Social": {
+    "Imgur": "http://imgur.com",
+    "Facebook": "https://facebook.com",
+    "Twitter": "https://twitter.com",
+    "Google+": "https://plus.google.com",
+    "BookLikes": "http://booklikes.com",
+    "Meetup": "http://meetup.com",
+    "MapMyRun": "http://mapmyrun.com",
+    "Steam": "http://store.steampowered.com",
+    "Netflix": "http://netflix.com",
+    "Jamendos": "http://jamendo.com"
+  },
+  "Dev": {
+    "Qweex": "http://qweex.com",
+    "GitHub": "https://github.com/notbryant",
+    "GitLab": "https://gitlab.com/notbryant",
+    "Bitbucket": "http://bitbucket.com/notbryant",
+    "Trello": "https://trello.com/",
+    "Pomodoro": "http://tomatoi.st/notbryant",
+    "DigitalOcean": "https://digitalocean.com",
+    "GoDaddy": "https://godaddy.com",
+    "BitBalloon": "https://www.bitballoon.com/sites/administrator-alice-33444",
+    "StatCounter": "http://statcounter.com/",
+    "Mothereffin'": "https://mothereff.in/"
+  }
+}
